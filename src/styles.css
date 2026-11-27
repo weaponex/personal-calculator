@@ -18,7 +18,7 @@ body {
 }
 
 .calculator {
-  width: min(25rem, 100%);
+  width: min(34rem, 100%);
   padding: 1rem;
   border-radius: 1.25rem;
   background: #ffffff;
@@ -38,14 +38,32 @@ body {
   padding: 0.75rem 1rem;
   background: #f8fafc;
   font-size: clamp(2rem, 10vw, 3.25rem);
+  font-family: inherit;
   font-variant-numeric: tabular-nums;
   text-align: right;
+}
+
+.display:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .display.error {
   font-size: clamp(1rem, 5vw, 1.35rem);
   color: #9f1239;
   font-weight: 700;
+}
+
+.scientific-keypad {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.scientific-keypad button {
+  min-height: 3rem;
+  font-size: 0.95rem;
 }
 
 .keypad {
@@ -94,12 +112,30 @@ button.zero {
   grid-column: span 2;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
 @media (max-width: 22rem) {
   .calculator {
     padding: 0.75rem;
   }
 
+  .scientific-keypad {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   button {
     min-height: 3.5rem;
+  }
+
+  .scientific-keypad button {
+    min-height: 3rem;
   }
 }

@@ -8,7 +8,27 @@
   </head>
   <body>
     <main class="calculator" aria-label="Calculator">
-      <output id="display" class="display" aria-live="polite" aria-label="Calculator result">0</output>
+      <label class="sr-only" for="display">Calculator expression</label>
+      <input id="display" class="display" type="text" value="0" inputmode="decimal"
+        autocomplete="off" autocapitalize="off" spellcheck="false" aria-live="polite"
+        aria-label="Calculator expression">
+      <section class="scientific-keypad" aria-label="Scientific controls">
+        <button type="button" id="angle-mode" data-action="angle-mode" aria-label="Angle mode degrees; activate to switch">DEG</button>
+        <button type="button" data-action="function" data-value="sin" aria-label="Sine">sin</button>
+        <button type="button" data-action="function" data-value="cos" aria-label="Cosine">cos</button>
+        <button type="button" data-action="function" data-value="tan" aria-label="Tangent">tan</button>
+        <button type="button" data-action="function" data-value="sqrt" aria-label="Square root">√</button>
+        <button type="button" data-action="function" data-value="asin" aria-label="Inverse sine">asin</button>
+        <button type="button" data-action="function" data-value="acos" aria-label="Inverse cosine">acos</button>
+        <button type="button" data-action="function" data-value="atan" aria-label="Inverse tangent">atan</button>
+        <button type="button" data-action="operator" data-value="^" aria-label="Power">xʸ</button>
+        <button type="button" data-action="factorial" aria-label="Factorial">x!</button>
+        <button type="button" data-action="reciprocal" aria-label="Reciprocal">1/x</button>
+        <button type="button" data-action="constant" data-value="pi" aria-label="Pi">π</button>
+        <button type="button" data-action="constant" data-value="e" aria-label="Euler's number">e</button>
+        <button type="button" data-action="parenthesis" data-value="(" aria-label="Open parenthesis">(</button>
+        <button type="button" data-action="parenthesis" data-value=")" aria-label="Close parenthesis">)</button>
+      </section>
       <section class="keypad" aria-label="Calculator controls">
         <button type="button" data-action="clear" class="utility">AC</button>
         <button type="button" data-action="correct" class="utility" aria-label="Correct last digit">⌫</button>
