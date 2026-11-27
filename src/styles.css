@@ -1,0 +1,105 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #edf2f7;
+  color: #172033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.calculator {
+  width: min(25rem, 100%);
+  padding: 1rem;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 1rem 3rem rgb(23 32 51 / 16%);
+}
+
+.display {
+  width: 100%;
+  min-height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 2px solid #ccd5e2;
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  font-size: clamp(2rem, 10vw, 3.25rem);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.display.error {
+  font-size: clamp(1rem, 5vw, 1.35rem);
+  color: #9f1239;
+  font-weight: 700;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+button {
+  min-height: 4rem;
+  border: 1px solid #ccd5e2;
+  border-radius: 0.65rem;
+  background: #f8fafc;
+  color: #172033;
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eef4fb;
+}
+
+button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+button.utility {
+  background: #e2e8f0;
+}
+
+button[data-action="operator"],
+button.equals {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+button[data-action="operator"]:hover,
+button.equals:hover {
+  background: #1d4ed8;
+}
+
+button.zero {
+  grid-column: span 2;
+}
+
+@media (max-width: 22rem) {
+  .calculator {
+    padding: 0.75rem;
+  }
+
+  button {
+    min-height: 3.5rem;
+  }
+}
